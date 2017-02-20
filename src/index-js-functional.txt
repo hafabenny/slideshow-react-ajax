@@ -1,0 +1,53 @@
+// Javascript modules available in ES6
+// accessing other javascript files
+//
+// find library 'react' and assign it to variable 'React'
+// these references know to look on node_modules folder
+import React from 'react';
+
+// needed to add elements to DOM
+import ReactDOM from 'react-dom';
+
+// youtube api
+import YTSearch from 'youtube-api-search';
+
+
+// we need to let react know it is a file (file reference)
+// import component SearchBar from file search_bar.js
+import SearchBar from './components/search_bar';
+
+// youtube API - created on console.developer.google.com
+const API_KEY = 'AIzaSyAzkN4SwnN4mdt78_5tPkFpW3W2W0Hc7UI';
+
+// for example
+// YTSearch({
+// 	key: API_KEY,
+// 	term: 'surfboards'
+// },
+// function(data){
+//   console.log(data);
+// });
+
+
+// create a new component. this component should produce some HTML
+
+// const means this is the final value of this variable. we are never going to redefine App later on
+// html in the return is JSX
+// const App = function() {
+//	return <div>Hafa</div>;
+//}
+
+// using ES6 function declaration
+// fat arrow
+const App = () => {
+  return (
+  	<div>
+  	  <SearchBar />
+    </div>
+  )
+}
+
+// put component into DOM - take this component generated HTML and put it on the page (in the DOM)
+
+// <App> is an instance of class App
+ReactDOM.render(<App />, document.querySelector('.container'));
